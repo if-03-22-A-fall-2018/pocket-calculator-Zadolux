@@ -85,9 +85,16 @@ void executeOperation(int operation)
 int main(int argc, char const *argv[]) {
   int input;
 
-  showMenu();
-  input = getOperationInput();
-  executeOperation(input);
+  while(input != -1)
+  {
+    showMenu();
+    input = getOperationInput();
+    executeOperation(input);
 
+    if(input != -1)
+    {
+      printf("\n");
+    }
+  }
   return 0;
 }
