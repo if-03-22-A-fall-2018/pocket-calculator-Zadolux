@@ -27,13 +27,12 @@ void showMenu()
   printf("\tStop program (-1)\n");
 }
 
-double readNumber(int number)
+void readNumbers(double* number1, double* number2)
 {
-  double input;
-  printf("Number %d: ", number);
-  scanf("%lf", &input);
-
-  return input;
+  printf("Number 1: ");
+  scanf("%lf", number1);
+  printf("Number 2: ");
+  scanf("%lf", number2);
 }
 
 int getOperationInput()
@@ -53,8 +52,7 @@ void executeOperation(int operation)
 
   if(operation != STOP)
   {
-    number1 = readNumber(1);
-    number2 = readNumber(2);
+    readNumbers(&number1, &number2);
   }
 
   switch(operation)
@@ -69,7 +67,14 @@ void executeOperation(int operation)
       printf("%lf * %lf = %lf\n", number1, number2, number1 * number2);
     break;
     case DIVIDE:
-    printf("%lf / %lf = %lf\n", number1, number2, number1 / number2);
+      if(number2 != 0)
+      {
+        printf("%lf / %lf = %lf\n", number1, number2, number1 / number2);
+      }
+      else
+      {
+        printf("Error: Division by zero.\n");
+      }
     break;
     case STOP:
       printf("Program stopped.\n");
