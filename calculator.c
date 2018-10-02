@@ -45,6 +45,11 @@ int getOperationInput()
   return input;
 }
 
+void printResult(double number1, char operator, double number2, double result)
+{
+    printf("%lf %c %lf = %lf\n", number1, operator, number2, result);
+}
+
 void executeOperation(int operation)
 {
   double number1 = 0;
@@ -58,18 +63,18 @@ void executeOperation(int operation)
   switch(operation)
   {
     case ADD:
-      printf("%lf + %lf = %lf\n", number1, number2, number1 + number2);
+      printResult(number1, '+', number2, number1 + number2);
     break;
     case SUBTRACT:
-    printf("%lf - %lf = %lf\n", number1, number2, number1 - number2);
+      printResult(number1, '-', number2, number1 - number2);
     break;
     case MULTIPLY:
-      printf("%lf * %lf = %lf\n", number1, number2, number1 * number2);
+      printResult(number1, '*', number2, number1 * number2);
     break;
     case DIVIDE:
       if(number2 != 0)
       {
-        printf("%lf / %lf = %lf\n", number1, number2, number1 / number2);
+        printResult(number1, '/', number2, number1 / number2);
       }
       else
       {
