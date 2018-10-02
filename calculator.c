@@ -27,6 +27,7 @@ void showMenu()
   printf("\tStop program (-1)\n");
 }
 
+// Reads the two needed numbers
 void readNumbers(double* number1, double* number2)
 {
   printf("Number 1: ");
@@ -35,6 +36,7 @@ void readNumbers(double* number1, double* number2)
   scanf("%lf", number2);
 }
 
+// Gets the operation number (1 to 4 or -1)
 int getOperationInput()
 {
   int input;
@@ -45,6 +47,7 @@ int getOperationInput()
   return input;
 }
 
+// Prints out the result
 void printResult(double number1, char operator, double number2, double result)
 {
     printf("%lf %c %lf = %lf\n", number1, operator, number2, result);
@@ -72,6 +75,7 @@ void executeOperation(int operation)
       printResult(number1, '*', number2, number1 * number2);
     break;
     case DIVIDE:
+      // Check if second number isn't 0 (divide by 0)
       if(number2 != 0)
       {
         printResult(number1, '/', number2, number1 / number2);
@@ -82,6 +86,7 @@ void executeOperation(int operation)
       }
     break;
     case STOP:
+      // Exit
       printf("Program stopped.\n");
     break;
   }
@@ -90,6 +95,7 @@ void executeOperation(int operation)
 int main(int argc, char const *argv[]) {
   int input;
 
+  // Loop until -1 entered
   while(input != -1)
   {
     showMenu();
