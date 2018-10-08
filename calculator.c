@@ -44,7 +44,14 @@ int getOperationInput()
   printf("Enter your choice: ");
   scanf("%d", &input);
 
-  return input;
+  if(input > -2 && input < 5)
+  {
+    return input;
+  }
+  else
+  {
+    return -1;
+  }
 }
 
 // Prints out the result
